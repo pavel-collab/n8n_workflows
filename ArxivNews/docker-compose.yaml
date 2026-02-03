@@ -10,22 +10,13 @@ services:
       - n8n_data:/home/node/.n8n
     restart: unless-stopped
 
-  kaggle-api:
-    build: .
-    container_name: kaggle-api
-    ports:
-      - "8000:8000"
-    volumes:
-      - ~/.kaggle:/root/.kaggle:ro
-    restart: unless-stopped
-
   postgres:
     image: postgres:15
     container_name: postgresql
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: kaggle_competitions
+      POSTGRES_DB: arxiv_records
     ports:
       - "5432:5432"
     volumes:
