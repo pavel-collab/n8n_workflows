@@ -1,7 +1,7 @@
 -- maybe we don't need to create a database if we set an enviroment variable in docker-compose
-CREATE DATABASE kaggle_competitions;
+-- CREATE DATABASE kaggle_competitions;
 
-\c kaggle_competitions
+-- \c kaggle_competitions
 
 create type status_type as enum ('new', 'queued', 'shown');
 

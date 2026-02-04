@@ -1,7 +1,7 @@
 -- maybe we don't need to create a database if we set an enviroment variable in docker-compose
-CREATE DATABASE arxiv_records;
+-- CREATE DATABASE arxiv_records;
 
-\c arxiv_records
+-- \c arxiv_records
 
 create type status_type as enum ('new', 'queued', 'shown');
 
