@@ -6,6 +6,8 @@ docker run -it --rm --name n8n -p 5678:5678 -v n8n_data:/home/node/.n8n docker.n
 
 Кроме того должен быть поднят сервис PostgreSQL. 
 
+ATTENTION: обратите внимание, что при первичной инициализации docker volume (для postgresql) происходит настройка базы и таблицы с использованием скрипта initdb.sql. Эта настройка происходит только при первичной инициализации volume. Так что если вы меняете скрипт initdb.sql необходимо удалить volume базы postgresql и стартовать docker-compose.
+
 ### Настройка базы данных и таблицы
 ```
 CREATE DATABASE arxiv_records;
