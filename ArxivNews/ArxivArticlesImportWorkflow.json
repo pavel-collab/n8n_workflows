@@ -6,10 +6,10 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -320,
-        -208
+        -3072,
+        -64
       ],
-      "id": "c8a2f06c-0e6e-431a-8e33-9a4182cc2dbb",
+      "id": "adae2dc5-8075-4867-aeec-bd7b5322ad5e",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -20,10 +20,10 @@
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        -32,
-        -208
+        -2672,
+        -64
       ],
-      "id": "a5e55ffa-b7d3-47af-b66a-3b98b047ac85",
+      "id": "40a492e4-bf4b-4048-b60d-d77d2f882c5a",
       "name": "RSS Read"
     },
     {
@@ -36,31 +36,11 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        192,
-        -208
+        -1632,
+        208
       ],
-      "id": "c53f6190-7845-485e-8851-7afb2356a985",
+      "id": "eb0a392e-93e4-49e0-b81a-dce49fa8e27d",
       "name": "Basic LLM Chain"
-    },
-    {
-      "parameters": {
-        "model": "qwen/qwen3-4b:free",
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-      "typeVersion": 1,
-      "position": [
-        64,
-        48
-      ],
-      "id": "7e0349b5-311e-40c6-b295-90d33a65bc2c",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "KkBIOMULAlSnyjdK",
-          "name": "OpenRouter account"
-        }
-      }
     },
     {
       "parameters": {
@@ -70,28 +50,28 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        256,
-        16
+        -1488,
+        528
       ],
-      "id": "8e576183-739a-4623-8072-ea758faabf32",
+      "id": "85df0e7b-0091-4106-82d1-fcd7c52b8c3f",
       "name": "Structured Output Parser"
     },
     {
       "parameters": {
-        "model": "meta-llama/llama-3.3-70b-instruct:free",
+        "model": "openai/gpt-oss-20b",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        256,
-        176
+        -1408,
+        736
       ],
-      "id": "549c9366-3e77-4949-855a-7ab78d67f15d",
+      "id": "fc225e68-742c-4464-9c8e-975d4245cbc0",
       "name": "OpenRouter Chat Model1",
       "credentials": {
         "openRouterApi": {
-          "id": "KkBIOMULAlSnyjdK",
+          "id": "83QmB5iRF2TuqiXX",
           "name": "OpenRouter account"
         }
       }
@@ -123,10 +103,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        528,
-        -208
+        -1584,
+        -32
       ],
-      "id": "06febe2e-28ec-42dd-9195-eac63d81a419",
+      "id": "231f7b25-a041-47a5-91f6-8ca27acad2b2",
       "name": "Filter"
     },
     {
@@ -139,28 +119,28 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        784,
-        -208
+        -1008,
+        272
       ],
-      "id": "a37b942b-e172-4051-8e54-e0b71c1460c0",
+      "id": "5b8ad37f-42ae-4224-b9a9-34c19d65751f",
       "name": "Basic LLM Chain1"
     },
     {
       "parameters": {
-        "model": "meta-llama/llama-3.3-70b-instruct:free",
+        "model": "openai/gpt-oss-20b",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        704,
-        16
+        -1088,
+        496
       ],
-      "id": "b98146da-2bba-4a78-8274-94112a0a7169",
+      "id": "9fbc3190-2356-4863-91b2-1d6f49b53332",
       "name": "OpenRouter Chat Model2",
       "credentials": {
         "openRouterApi": {
-          "id": "KkBIOMULAlSnyjdK",
+          "id": "83QmB5iRF2TuqiXX",
           "name": "OpenRouter account"
         }
       }
@@ -173,28 +153,28 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        864,
-        32
+        -928,
+        512
       ],
-      "id": "413e1b2a-6d88-45ba-b39c-2ec502eb742d",
+      "id": "f416b8c0-c96d-4649-bf26-a9e8a863581d",
       "name": "Structured Output Parser1"
     },
     {
       "parameters": {
-        "model": "meta-llama/llama-3.3-70b-instruct:free",
+        "model": "openai/gpt-oss-20b",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        864,
-        208
+        -928,
+        688
       ],
-      "id": "bf1ce51c-5cb7-471f-8f3d-1433878475c4",
+      "id": "38bb8054-0fc4-494b-b84d-165c08f8abae",
       "name": "OpenRouter Chat Model3",
       "credentials": {
         "openRouterApi": {
-          "id": "KkBIOMULAlSnyjdK",
+          "id": "83QmB5iRF2TuqiXX",
           "name": "OpenRouter account"
         }
       }
@@ -226,10 +206,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        1136,
-        -208
+        -672,
+        -48
       ],
-      "id": "3cd8a1bb-99b1-48ee-8d31-31c6219131d7",
+      "id": "1d22d4eb-242b-4219-930c-726e6e22a19e",
       "name": "Filter1"
     },
     {
@@ -246,30 +226,30 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        -320,
-        48
+        -3072,
+        192
       ],
-      "id": "ef259725-c6fa-4aee-b423-41b1dc9b0813",
+      "id": "378a23b1-ea5c-4bf5-a594-441de20a438f",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "chatId": "448541908",
-        "text": "=Подборка статей с портала axiv:  \n\nСтатья: {{ $json.output.title }} \nТема: {{ $json.output.summary }} \n\n================================ \n\nСсылка: {{ $json.output.link }} \nДата публикации: {{ $json.output['publication date'] }}",
+        "text": "=Подборка статей с портала axiv:  \n\nСтатья:  {{ $json.title }}\nТема: {{ $json.summary }}\n\n================================ \n\nСсылка: {{ $json.link }}\nДата публикации: {{ $json.pub_date }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        1856,
-        -160
+        336,
+        240
       ],
-      "id": "1368e6b4-1355-4296-a00d-9472a8f9a891",
+      "id": "42a132fb-7fd0-4482-b863-99eb013c86db",
       "name": "Send a text message",
       "webhookId": "a3e64116-7522-4658-8f51-1fae0efaecc6",
       "credentials": {
         "telegramApi": {
-          "id": "IzLSodskkABWnmyk",
+          "id": "HQsQOxndfPcopH7P",
           "name": "Telegram account"
         }
       }
@@ -281,53 +261,24 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1328,
+        -2000,
         -16
       ],
-      "id": "2f38b44a-1b3e-4f99-91ba-109b98991cd3",
+      "id": "bcece1a3-7ecf-4dec-a259-5bfdbf19a259",
       "name": "Loop Over Items"
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "insert into arxiv_records (title, link, author, pub_date, summary, status) values ('', '', '', '', '', 'new') on conflict (title) do nothing;",
-        "options": {}
+        "maxItems": 3
       },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
       "position": [
-        1584,
-        128
+        -2384,
+        -144
       ],
-      "id": "7d3bba69-5c86-43e5-9510-7e4b756d3241",
-      "name": "Execute a SQL query",
-      "credentials": {
-        "postgres": {
-          "id": "HEISjzHlux3ynqCy",
-          "name": "Postgres account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "select * from arxiv_records where status = 'new' or status = 'queued' limit 5;",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        1600,
-        -384
-      ],
-      "id": "b33eb90c-26bb-4e40-b1ee-6fb4a232ebba",
-      "name": "Execute a SQL query1",
-      "credentials": {
-        "postgres": {
-          "id": "HEISjzHlux3ynqCy",
-          "name": "Postgres account"
-        }
-      }
+      "id": "3599bf89-3b81-416a-b33c-7f7603d6bf07",
+      "name": "Limit"
     },
     {
       "parameters": {
@@ -336,30 +287,307 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        2064,
-        -160
+        -1184,
+        -272
       ],
-      "id": "6c0b5d22-8f0b-4ca5-8eac-3e2337ebb58e",
+      "id": "a286b717-0862-4c62-8afa-4512d0b41302",
       "name": "Loop Over Items1"
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "update arxiv_records set status = 'shown'  where title = '';",
+        "model": "openai/gpt-oss-20b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        -1728,
+        656
+      ],
+      "id": "63d88ad3-77e7-42e4-8699-e9e1a5051130",
+      "name": "OpenRouter Chat Model",
+      "credentials": {
+        "openRouterApi": {
+          "id": "83QmB5iRF2TuqiXX",
+          "name": "OpenRouter account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "schema": {
+          "__rl": true,
+          "value": "public",
+          "mode": "list",
+          "cachedResultName": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "arxiv_records",
+          "mode": "list",
+          "cachedResultName": "arxiv_records"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "title": "={{ $json.output.title }}",
+            "link": "={{ $json.output.title }}",
+            "author": "={{ $json.output.author }}",
+            "pub_date": "={{ $json.output[\"publication date\"] }}",
+            "summary": "={{ $json.output.summary }}",
+            "status": "new"
+          },
+          "matchingColumns": [],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "author",
+              "displayName": "author",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "pub_date",
+              "displayName": "pub_date",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [
+                {
+                  "name": "shown",
+                  "value": "shown"
+                },
+                {
+                  "name": "queued",
+                  "value": "queued"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ]
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
         "options": {}
       },
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        2304,
-        32
+        -416,
+        16
       ],
-      "id": "441803f5-e3b8-46eb-aaa2-ce82e68fb4ba",
-      "name": "Execute a SQL query2",
+      "id": "3d692c0d-64f8-40ea-a118-f0bcbb80b42a",
+      "name": "Insert rows in a table",
       "credentials": {
         "postgres": {
-          "id": "HEISjzHlux3ynqCy",
-          "name": "Postgres account"
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "arxiv_records",
+          "mode": "list",
+          "cachedResultName": "arxiv_records"
+        },
+        "limit": 5,
+        "where": {
+          "values": [
+            {
+              "column": "status",
+              "value": "new"
+            },
+            {
+              "column": "status",
+              "value": "queued"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -128,
+        16
+      ],
+      "id": "2b3baf30-ff19-4b1e-946b-10087b3fe87e",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "arxiv_records",
+          "mode": "list",
+          "cachedResultName": "arxiv_records"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "shown",
+            "title": "={{ $json.title }}"
+          },
+          "matchingColumns": [
+            "title"
+          ],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "author",
+              "displayName": "author",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "pub_date",
+              "displayName": "pub_date",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "summary",
+              "displayName": "summary",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [
+                {
+                  "name": "shown",
+                  "value": "shown"
+                },
+                {
+                  "name": "queued",
+                  "value": "queued"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ]
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        256,
+        -48
+      ],
+      "id": "a83b0cbe-3a8b-47c6-837c-22af79a4b78a",
+      "name": "Update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
         }
       }
     }
@@ -381,19 +609,8 @@
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Limit",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenRouter Chat Model": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Basic LLM Chain",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -425,7 +642,7 @@
       "main": [
         [
           {
-            "node": "Filter",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -436,7 +653,7 @@
       "main": [
         [
           {
-            "node": "Basic LLM Chain1",
+            "node": "Loop Over Items1",
             "type": "main",
             "index": 0
           }
@@ -480,7 +697,7 @@
       "main": [
         [
           {
-            "node": "Filter1",
+            "node": "Loop Over Items1",
             "type": "main",
             "index": 0
           }
@@ -491,7 +708,7 @@
       "main": [
         [
           {
-            "node": "Loop Over Items",
+            "node": "Insert rows in a table",
             "type": "main",
             "index": 0
           }
@@ -509,25 +726,30 @@
         ]
       ]
     },
+    "Send a text message": {
+      "main": [
+        []
+      ]
+    },
     "Loop Over Items": {
       "main": [
         [
           {
-            "node": "Execute a SQL query1",
+            "node": "Filter",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Execute a SQL query",
+            "node": "Basic LLM Chain",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Execute a SQL query": {
+    "Limit": {
       "main": [
         [
           {
@@ -538,45 +760,56 @@
         ]
       ]
     },
-    "Execute a SQL query1": {
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Filter1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Basic LLM Chain1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Insert rows in a table": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Select rows from a table": {
       "main": [
         [
           {
             "node": "Send a text message",
             "type": "main",
             "index": 0
-          }
-        ]
-      ]
-    },
-    "Send a text message": {
-      "main": [
-        [
+          },
           {
-            "node": "Loop Over Items1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Loop Over Items1": {
-      "main": [
-        [],
-        [
-          {
-            "node": "Execute a SQL query2",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Execute a SQL query2": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items1",
+            "node": "Update rows in a table",
             "type": "main",
             "index": 0
           }
@@ -589,11 +822,11 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "d08bfc5e-adf3-417a-99ac-04cb707bbb49",
+  "versionId": "231fd6fc-7f42-4efa-bc58-46511d7a7bec",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "ea69808ddc776ea0a5c94c9b857695fe5340287996de009a12bbc52fb9ff1e00"
+    "instanceId": "9103db679eecd46b75b1435147504e73bafd7c34178c3769e37858292b9a7fbe"
   },
-  "id": "v1oEfFAk6rgqKfyXHAnuW",
+  "id": "XC88fnXkJpCX1xTyWmL2-",
   "tags": []
 }
