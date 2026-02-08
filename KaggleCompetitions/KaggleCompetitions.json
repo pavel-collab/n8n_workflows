@@ -8,10 +8,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        1104,
-        336
+        832,
+        1168
       ],
-      "id": "ec916b74-92ec-4214-8d20-c35c027169d4",
+      "id": "22032c67-7fc3-41e6-90be-79992e32dd32",
       "name": "Loop Over Items"
     },
     {
@@ -132,15 +132,15 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        1920,
-        320
+        1648,
+        1152
       ],
-      "id": "a4f4db8b-cae7-4189-858f-091e0c144728",
+      "id": "05b026d3-5809-4af1-a910-ffafb179a4d5",
       "name": "Insert or update rows in a table",
       "credentials": {
         "postgres": {
-          "id": "w9tRCdysEHVZnfq6",
-          "name": "Postgres account 2"
+          "id": "aYxP7nIvdi4ddybM",
+          "name": "Postgres account"
         }
       }
     },
@@ -176,15 +176,15 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        2496,
-        144
+        2224,
+        976
       ],
-      "id": "f6605da3-38f0-4fb1-b69c-965a1a675bfe",
+      "id": "5ff4ca9a-b1ee-4d50-8b85-a3ee8da8ff85",
       "name": "Select rows from a table",
       "credentials": {
         "postgres": {
-          "id": "w9tRCdysEHVZnfq6",
-          "name": "Postgres account 2"
+          "id": "aYxP7nIvdi4ddybM",
+          "name": "Postgres account"
         }
       }
     },
@@ -284,15 +284,15 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        3680,
-        352
+        2752,
+        800
       ],
-      "id": "bd2114e3-d671-43d4-b8e5-6e72266e4cc2",
+      "id": "bcf749ae-5804-4d16-befa-43a1a774783c",
       "name": "Update rows in a table",
       "credentials": {
         "postgres": {
-          "id": "w9tRCdysEHVZnfq6",
-          "name": "Postgres account 2"
+          "id": "aYxP7nIvdi4ddybM",
+          "name": "Postgres account"
         }
       }
     },
@@ -305,15 +305,15 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        416,
-        848
+        144,
+        1680
       ],
-      "id": "273791a6-1c96-4368-8ec3-8bea90e9aa7c",
+      "id": "63b57926-ebde-4507-a5be-cadeef387d4d",
       "name": "Send a text message1",
       "webhookId": "e07a5aa3-06ff-4348-807d-fcb26e6e5499",
       "credentials": {
         "telegramApi": {
-          "id": "HQsQOxndfPcopH7P",
+          "id": "ZVi0PuveqVwl4Gwn",
           "name": "Telegram account"
         }
       }
@@ -323,10 +323,10 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        2176,
-        320
+        1904,
+        1152
       ],
-      "id": "dbdeddac-4485-4480-bc15-b56279c743bb",
+      "id": "6f8820b7-957c-4874-8b20-07de139db993",
       "name": "Limit1"
     },
     {
@@ -336,10 +336,10 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        3024,
-        144
+        2752,
+        976
       ],
-      "id": "df19ee23-1db1-4445-b8d4-2f3cbb8ca8ad",
+      "id": "b302621d-5002-42d3-be0d-233744189e49",
       "name": "Loop Over Items1"
     },
     {
@@ -350,10 +350,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -128,
-        656
+        -400,
+        1488
       ],
-      "id": "a7084c49-f47a-418a-a1fb-d4685ae72400",
+      "id": "bfe0e3e4-d0c2-4015-b80e-aa3d344ac96f",
       "name": "HTTP Request2"
     },
     {
@@ -383,10 +383,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        192,
-        656
+        -80,
+        1488
       ],
-      "id": "5554aa66-f2fa-477f-bf7a-2bc2674599d3",
+      "id": "20f51d82-88b5-4c7c-bb03-d3a13dc41afe",
       "name": "If1"
     },
     {
@@ -397,10 +397,10 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        432,
-        336
+        160,
+        1168
       ],
-      "id": "91a402a6-2252-4121-b7e0-2d7c42822867",
+      "id": "cbde64a8-56c2-477d-8d2f-c9765b020518",
       "name": "HTTP Request3"
     },
     {
@@ -410,10 +410,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        656,
-        336
+        384,
+        1168
       ],
-      "id": "28d01d01-a96b-4edc-8e8f-d4792e0e69be",
+      "id": "6a37ab8e-bb47-41b4-b7db-56f8ad43d736",
       "name": "Code in JavaScript1"
     },
     {
@@ -423,10 +423,10 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        880,
-        336
+        608,
+        1168
       ],
-      "id": "d5bf5741-4a27-4369-965a-a8e09884be74",
+      "id": "c92ec80b-4950-4e64-b2c8-7e6ff3f344be",
       "name": "Limit2"
     },
     {
@@ -439,10 +439,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        1344,
-        544
+        1072,
+        1376
       ],
-      "id": "166b1c21-8863-4f79-9cba-8d623714e1df",
+      "id": "dbb8eaf2-640f-4180-aab2-7602f795c21b",
       "name": "Basic LLM Chain2"
     },
     {
@@ -453,10 +453,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        1552,
-        800
+        1280,
+        1632
       ],
-      "id": "8cd5fac0-e628-4bf8-9fbd-caaa274ce911",
+      "id": "020e64c8-7518-434d-b3b2-155f6afb14d3",
       "name": "Structured Output Parser2"
     },
     {
@@ -467,11 +467,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1552,
-        992
+        1280,
+        1824
       ],
-      "id": "64a90233-412a-4617-b296-3d2ed9eab66e",
-      "name": "OpenRouter Chat Model4"
+      "id": "fd577414-9ca2-4e86-9395-a75f4cf20244",
+      "name": "OpenRouter Chat Model4",
+      "credentials": {
+        "openRouterApi": {
+          "id": "wn1ZH7HCnd9TGlBi",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -481,11 +487,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1344,
-        816
+        1072,
+        1648
       ],
-      "id": "6e7ae817-b719-47fe-94ed-0e2d3f808ac5",
-      "name": "OpenRouter Chat Model5"
+      "id": "b8ac0a70-ea19-4dc9-ac47-85730c8d1c2b",
+      "name": "OpenRouter Chat Model5",
+      "credentials": {
+        "openRouterApi": {
+          "id": "wn1ZH7HCnd9TGlBi",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -496,15 +508,15 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        3440,
-        128
+        3168,
+        960
       ],
-      "id": "30b03108-f971-4995-873a-521730f16366",
+      "id": "722f46b2-d740-4280-8d82-b5ea2bc2607b",
       "name": "Send a text message2",
       "webhookId": "e07a5aa3-06ff-4348-807d-fcb26e6e5499",
       "credentials": {
         "telegramApi": {
-          "id": "HQsQOxndfPcopH7P",
+          "id": "ZVi0PuveqVwl4Gwn",
           "name": "Telegram account"
         }
       }
@@ -554,10 +566,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        1392,
-        320
+        1120,
+        1152
       ],
-      "id": "409efb69-5027-48c9-8451-d330629e37a4",
+      "id": "a2e36b1e-2d5e-4138-bd4c-ab18661e4322",
       "name": "Filter2"
     },
     {
@@ -573,10 +585,10 @@
             {
               "id": "d7c43529-1799-4a0b-a741-e73d977fd749",
               "leftValue": "={{ $json.output[\"Date start\"] }}",
-              "rightValue": "N/A",
+              "rightValue": "=\\d{4}-\\d{2}-\\d{2}",
               "operator": {
                 "type": "string",
-                "operation": "notEquals"
+                "operation": "regex"
               }
             }
           ],
@@ -587,10 +599,10 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        1664,
-        320
+        1392,
+        1152
       ],
-      "id": "7c086a0f-42be-4cf2-b5ed-16604845196f",
+      "id": "a91ff76f-86d1-4627-8f66-418fe2aab470",
       "name": "Filter3"
     },
     {
@@ -603,10 +615,10 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        3248,
-        352
+        2976,
+        1184
       ],
-      "id": "10cdc313-98c6-422a-b673-ad5f2a149141",
+      "id": "e3fe30b4-1a2c-4bbc-a1ef-7858c3cc8dda",
       "name": "Basic LLM Chain3"
     },
     {
@@ -617,10 +629,10 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        3440,
-        640
+        3168,
+        1472
       ],
-      "id": "712ad982-ccd5-4759-b520-07d677f1e7b8",
+      "id": "9759fd0e-c703-47a6-9cfa-a70b55e29a04",
       "name": "Structured Output Parser3"
     },
     {
@@ -631,11 +643,17 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3440,
-        816
+        3168,
+        1648
       ],
-      "id": "a6d149a3-1482-483b-ae36-3d9163e6cd54",
-      "name": "OpenRouter Chat Model6"
+      "id": "0feee60b-8922-41d4-b3b4-7c6c0f052bb2",
+      "name": "OpenRouter Chat Model6",
+      "credentials": {
+        "openRouterApi": {
+          "id": "wn1ZH7HCnd9TGlBi",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {
@@ -645,21 +663,27 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        3248,
-        640
+        2976,
+        1472
       ],
-      "id": "532abc0b-e91b-4f3a-a3dd-408aa2516d52",
-      "name": "OpenRouter Chat Model7"
+      "id": "e2ea56c2-23fc-41bd-aacb-07f5acc7fde3",
+      "name": "OpenRouter Chat Model7",
+      "credentials": {
+        "openRouterApi": {
+          "id": "wn1ZH7HCnd9TGlBi",
+          "name": "OpenRouter account"
+        }
+      }
     },
     {
       "parameters": {},
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -1072,
-        144
+        -1344,
+        976
       ],
-      "id": "99cf0c8c-8e82-4299-a9e2-502fc93261a4",
+      "id": "afecab6e-55c2-4b2b-b83c-f406204a05c5",
       "name": "When clicking ‘Execute workflow’"
     },
     {
@@ -671,15 +695,15 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        -720,
-        144
+        -992,
+        976
       ],
-      "id": "96e32d2e-b84e-4abf-ab71-03841931f05d",
+      "id": "d9444c88-a5be-47b7-be53-1268ca61bf65",
       "name": "Execute a SQL query",
       "credentials": {
         "postgres": {
-          "id": "w9tRCdysEHVZnfq6",
-          "name": "Postgres account 2"
+          "id": "aYxP7nIvdi4ddybM",
+          "name": "Postgres account"
         }
       }
     },
@@ -696,10 +720,10 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        -1072,
-        384
+        -1344,
+        1216
       ],
-      "id": "f38e050c-d8eb-4f94-976b-89b79c247db7",
+      "id": "fc2630b4-ab51-48ca-84a2-73dd8204bc0c",
       "name": "Schedule Trigger"
     },
     {
@@ -729,10 +753,10 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -480,
-        144
+        -752,
+        976
       ],
-      "id": "09efcb02-ea8f-4e9c-9807-7ab725842bd3",
+      "id": "555f0e2c-ac8b-4b62-89ef-3a1830ecf4a3",
       "name": "If"
     },
     {
@@ -742,10 +766,10 @@
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        2768,
-        144
+        2400,
+        976
       ],
-      "id": "ab76ee92-f552-4d14-8218-9cd8ff801d2f",
+      "id": "59393fe2-5c7f-4ede-b2b2-c0607acf8f5c",
       "name": "Limit"
     }
   ],
@@ -955,11 +979,6 @@
             "node": "Loop Over Items1",
             "type": "main",
             "index": 0
-          },
-          {
-            "node": "Update rows in a table",
-            "type": "main",
-            "index": 0
           }
         ]
       ]
@@ -1055,6 +1074,11 @@
             "node": "Loop Over Items1",
             "type": "main",
             "index": 0
+          },
+          {
+            "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
           }
         ]
       ]
@@ -1065,11 +1089,11 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "38129e25-fc97-40d1-96e9-ee9d157c4166",
+  "versionId": "eb1edde1-0e2f-490e-82b4-40c152e14417",
   "meta": {
     "templateCredsSetupCompleted": true,
-    "instanceId": "9103db679eecd46b75b1435147504e73bafd7c34178c3769e37858292b9a7fbe"
+    "instanceId": "b82d1e09bc2f7399b502f6eb08ca27abeb2a44dd15ab54c3464a91f97445a6c2"
   },
-  "id": "2NQYuMUu1ynoVTj8Bo3nt",
+  "id": "3YEHpNJ_7anidhUc4psQu",
   "tags": []
 }
