@@ -2,29 +2,359 @@
   "name": "KaggleCompetitions",
   "nodes": [
     {
-      "parameters": {},
-      "type": "n8n-nodes-base.manualTrigger",
-      "typeVersion": 1,
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
       "position": [
-        -496,
-        -144
+        1104,
+        336
       ],
-      "id": "48c4e709-c410-4dc9-8602-1bee23a462eb",
-      "name": "When clicking ‘Execute workflow’"
+      "id": "ec916b74-92ec-4214-8d20-c35c027169d4",
+      "name": "Loop Over Items"
     },
     {
       "parameters": {
-        "url": "http://localhost:8000/health",
+        "operation": "upsert",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "kaggle_competitions",
+          "mode": "list",
+          "cachedResultName": "kaggle_competitions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "title": "={{ $json.output.Title }}",
+            "link": "={{ $json.output.Link }}",
+            "date_start": "={{ $json.output[\"Date start\"] }}",
+            "deadline": "={{ $json.output.Deadline }}",
+            "status": "new",
+            "description": "={{ $json.output.Description }}",
+            "type": "={{ $json.output.Type }}"
+          },
+          "matchingColumns": [
+            "title"
+          ],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "date_start",
+              "displayName": "date_start",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "deadline",
+              "displayName": "deadline",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": false
+            },
+            {
+              "id": "description",
+              "displayName": "description",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "type",
+              "displayName": "type",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": false,
+              "removed": false
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": false,
+              "options": [
+                {
+                  "name": "shown",
+                  "value": "shown"
+                },
+                {
+                  "name": "queued",
+                  "value": "queued"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ]
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        1920,
+        320
+      ],
+      "id": "a4f4db8b-cae7-4189-858f-091e0c144728",
+      "name": "Insert or update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "select",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "kaggle_competitions",
+          "mode": "list",
+          "cachedResultName": "kaggle_competitions"
+        },
+        "where": {
+          "values": [
+            {
+              "column": "status",
+              "value": "new"
+            },
+            {
+              "column": "status",
+              "value": "queued"
+            }
+          ]
+        },
+        "combineConditions": "OR",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        2496,
+        144
+      ],
+      "id": "f6605da3-38f0-4fb1-b69c-965a1a675bfe",
+      "name": "Select rows from a table",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "schema": {
+          "__rl": true,
+          "mode": "list",
+          "value": "public"
+        },
+        "table": {
+          "__rl": true,
+          "value": "kaggle_competitions",
+          "mode": "list",
+          "cachedResultName": "kaggle_competitions"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "status": "shown",
+            "title": "={{ $json.title }}"
+          },
+          "matchingColumns": [
+            "title"
+          ],
+          "schema": [
+            {
+              "id": "title",
+              "displayName": "title",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "link",
+              "displayName": "link",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "date_start",
+              "displayName": "date_start",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "deadline",
+              "displayName": "deadline",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "dateTime",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "status",
+              "displayName": "status",
+              "required": true,
+              "defaultMatch": false,
+              "display": true,
+              "type": "options",
+              "canBeUsedToMatch": true,
+              "options": [
+                {
+                  "name": "shown",
+                  "value": "shown"
+                },
+                {
+                  "name": "queued",
+                  "value": "queued"
+                },
+                {
+                  "name": "new",
+                  "value": "new"
+                }
+              ]
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        3680,
+        352
+      ],
+      "id": "bd2114e3-d671-43d4-b8e5-6e72266e4cc2",
+      "name": "Update rows in a table",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "chatId": "448541908",
+        "text": "Sorry, have no access to the kaggle competition service",
+        "additionalFields": {}
+      },
+      "type": "n8n-nodes-base.telegram",
+      "typeVersion": 1.2,
+      "position": [
+        416,
+        848
+      ],
+      "id": "273791a6-1c96-4368-8ec3-8bea90e9aa7c",
+      "name": "Send a text message1",
+      "webhookId": "e07a5aa3-06ff-4348-807d-fcb26e6e5499",
+      "credentials": {
+        "telegramApi": {
+          "id": "HQsQOxndfPcopH7P",
+          "name": "Telegram account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2176,
+        320
+      ],
+      "id": "dbdeddac-4485-4480-bc15-b56279c743bb",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        3024,
+        144
+      ],
+      "id": "df19ee23-1db1-4445-b8d4-2f3cbb8ca8ad",
+      "name": "Loop Over Items1"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:8000/health",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        -288,
-        -144
+        -128,
+        656
       ],
-      "id": "f7ff8f64-0a54-48a5-b4b8-ca8f15aadd0e",
-      "name": "HTTP Request"
+      "id": "a7084c49-f47a-418a-a1fb-d4685ae72400",
+      "name": "HTTP Request2"
     },
     {
       "parameters": {
@@ -38,12 +368,11 @@
           "conditions": [
             {
               "id": "657ee4ce-d9c4-4df3-adc6-ef14647bafd7",
-              "leftValue": "",
+              "leftValue": "={{ $json.status }}",
               "rightValue": "ok",
               "operator": {
                 "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
+                "operation": "equals"
               }
             }
           ],
@@ -54,286 +383,124 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.3,
       "position": [
-        -80,
-        -144
+        192,
+        656
       ],
-      "id": "5db6f895-61fd-44d7-b4f3-250621d1b88e",
-      "name": "If"
+      "id": "5554aa66-f2fa-477f-bf7a-2bc2674599d3",
+      "name": "If1"
     },
     {
       "parameters": {
-        "url": "http:localhost:8000/competitions",
+        "url": "http://host.docker.internal:8000/competitions",
         "options": {}
       },
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.3,
       "position": [
-        208,
-        -288
+        432,
+        336
       ],
-      "id": "d8862d7c-0c73-4c9a-9aec-986b5a67a69a",
-      "name": "HTTP Request1"
+      "id": "91a402a6-2252-4121-b7e0-2d7c42822867",
+      "name": "HTTP Request3"
     },
     {
       "parameters": {
-        "jsCode": "{{ $json[0].items }}"
+        "jsCode": "return $input.first().json.items"
       },
       "type": "n8n-nodes-base.code",
       "typeVersion": 2,
       "position": [
-        416,
-        -288
+        656,
+        336
       ],
-      "id": "f3e84f99-f33b-4599-a336-112ebf007cd4",
-      "name": "Code in JavaScript"
+      "id": "28d01d01-a96b-4edc-8e8f-d4792e0e69be",
+      "name": "Code in JavaScript1"
     },
     {
       "parameters": {
-        "maxItems": 10
+        "maxItems": 50
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
       "position": [
-        624,
-        -288
+        880,
+        336
       ],
-      "id": "77f52b35-c8bf-4487-b051-34611f3b6bb6",
-      "name": "Limit"
+      "id": "d5bf5741-4a27-4369-965a-a8e09884be74",
+      "name": "Limit2"
     },
     {
       "parameters": {
+        "promptType": "define",
+        "text": "=Ты -- эксперт-оценщик kaggle соревнований. Тебе дано соревнование:\n\nНазвание: {{ $json.competition_title }}\nСсылка: {{ $json.link }}\n\nИспользуй ОПИСАНИЕ соревнования и его ТЭГИ, чтобы определить, к какой сфере машинного обучения относится это соревнование: CLASSIC ML, LLM/NLP, CV или какая-то другая категория Other.\n\nОПИСАНИЕ: {{ $json.description }}\nТЭГИ: {{ $json.tags }}",
         "hasOutputParser": true,
         "batching": {}
       },
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        832,
-        -288
+        1344,
+        544
       ],
-      "id": "68f48c90-e9b3-4d1d-a9b8-64067b116b39",
-      "name": "Basic LLM Chain"
+      "id": "166b1c21-8863-4f79-9cba-8d623714e1df",
+      "name": "Basic LLM Chain2"
     },
     {
       "parameters": {
+        "jsonSchemaExample": "{\n\t\"Title\": \"string\",\n    \"Link\": \"string\",\n    \"Date start\": \"string\",\n    \"Deadline\": \"string\",\n    \"Description\": \"string\",\n    \"Type\": \"string\"\n}",
         "autoFix": true
       },
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        976,
-        -80
+        1552,
+        800
       ],
-      "id": "dba9b77c-2bf6-475b-8f93-5c5d3a5b1c24",
-      "name": "Structured Output Parser"
+      "id": "8cd5fac0-e628-4bf8-9fbd-caaa274ce911",
+      "name": "Structured Output Parser2"
     },
     {
       "parameters": {
+        "model": "openai/gpt-oss-20b:free",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        912,
-        128
+        1552,
+        992
       ],
-      "id": "2dde751e-be64-45f5-b8dc-d27a4d1d887b",
-      "name": "OpenRouter Chat Model",
-      "credentials": {
-        "openRouterApi": {
-          "id": "83QmB5iRF2TuqiXX",
-          "name": "OpenRouter account"
-        }
-      }
+      "id": "64a90233-412a-4617-b296-3d2ed9eab66e",
+      "name": "OpenRouter Chat Model4"
     },
     {
       "parameters": {
+        "model": "openai/gpt-oss-20b:free",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        720,
-        -80
+        1344,
+        816
       ],
-      "id": "7fe1eb22-8fe7-49a0-b445-3f0871403a51",
-      "name": "OpenRouter Chat Model1",
-      "credentials": {
-        "openRouterApi": {
-          "id": "83QmB5iRF2TuqiXX",
-          "name": "OpenRouter account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "4c4089f0-411f-4afc-8990-d03ab057bc1e",
-              "leftValue": "",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.3,
-      "position": [
-        1216,
-        -288
-      ],
-      "id": "a3cc307a-6270-4a70-8936-098a17706d0b",
-      "name": "Filter"
-    },
-    {
-      "parameters": {
-        "hasOutputParser": true,
-        "batching": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.chainLlm",
-      "typeVersion": 1.9,
-      "position": [
-        1424,
-        -288
-      ],
-      "id": "279e47eb-f82e-4b74-b508-73336d1ca4a5",
-      "name": "Basic LLM Chain1"
-    },
-    {
-      "parameters": {
-        "options": {}
-      },
-      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
-      "typeVersion": 1,
-      "position": [
-        1392,
-        16
-      ],
-      "id": "96128a02-b8f1-465e-8bbd-8071643e6e42",
-      "name": "OpenRouter Chat Model2",
-      "credentials": {
-        "openRouterApi": {
-          "id": "83QmB5iRF2TuqiXX",
-          "name": "OpenRouter account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "autoFix": true
-      },
-      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
-      "typeVersion": 1.3,
-      "position": [
-        1568,
-        -80
-      ],
-      "id": "8d648ede-96b3-4e2c-b70c-a396e595b6ca",
-      "name": "Structured Output Parser1"
-    },
-    {
-      "parameters": {
-        "conditions": {
-          "options": {
-            "caseSensitive": true,
-            "leftValue": "",
-            "typeValidation": "strict",
-            "version": 3
-          },
-          "conditions": [
-            {
-              "id": "412fafaf-83c0-4cbc-940d-82cbf9d71e07",
-              "leftValue": "",
-              "rightValue": "",
-              "operator": {
-                "type": "string",
-                "operation": "equals",
-                "name": "filter.operator.equals"
-              }
-            }
-          ],
-          "combinator": "and"
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.filter",
-      "typeVersion": 2.3,
-      "position": [
-        1776,
-        -288
-      ],
-      "id": "a4a42585-9a3d-44fa-87e6-3b448332175e",
-      "name": "Filter1"
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "INSERT INTO kaggle_competitions (title, link, date_start, deadline, status) \n  VALUES ('', '', '', '', 'new');",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        2032,
-        -288
-      ],
-      "id": "f9f6b7da-41c4-4d93-b44e-16d01fbfc4f3",
-      "name": "Execute a SQL query",
-      "credentials": {
-        "postgres": {
-          "id": "MYJ3D6GRloOG6cb8",
-          "name": "Postgres account"
-        }
-      }
-    },
-    {
-      "parameters": {
-        "operation": "executeQuery",
-        "query": "SELECT \n  * \nFROM \n  kaggle_competitions \nWHERE \n  status = 'new' \n  OR status = 'queued' \nORDER BY \n  deadline \nLIMIT 10;",
-        "options": {}
-      },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
-      "position": [
-        2256,
-        -288
-      ],
-      "id": "38116652-b01c-4d8c-9625-3f23c0f477f6",
-      "name": "Execute a SQL query1",
-      "credentials": {
-        "postgres": {
-          "id": "MYJ3D6GRloOG6cb8",
-          "name": "Postgres account"
-        }
-      }
+      "id": "6e7ae817-b719-47fe-94ed-0e2d3f808ac5",
+      "name": "OpenRouter Chat Model5"
     },
     {
       "parameters": {
         "chatId": "448541908",
+        "text": "=Kaggle соревнование:\n\nTitle: {{ $json.output.Title }}\nLink: {{ $json.output.Link }}\nDeadline: {{ $json.output.Deadline }}\nTheme: {{ $json.output.Type }}\n\nОписание: \n{{ $json.output.Description }}",
         "additionalFields": {}
       },
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        2464,
-        -288
+        3440,
+        128
       ],
-      "id": "7521cd24-6186-4168-9456-8d7f92ef6dc5",
-      "name": "Send a text message",
+      "id": "30b03108-f971-4995-873a-521730f16366",
+      "name": "Send a text message2",
       "webhookId": "e07a5aa3-06ff-4348-807d-fcb26e6e5499",
       "credentials": {
         "telegramApi": {
@@ -344,92 +511,276 @@
     },
     {
       "parameters": {
-        "operation": "executeQuery",
-        "query": "UPDATE \n  kaggle_competitions \nSET \n  status = 'shown' \nWHERE \n  title = '';",
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d24a81c2-a291-4fc2-b4f5-bf130608da1e",
+              "leftValue": "={{ $json.output.Type }}",
+              "rightValue": "LLM/NLP",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "0c7d939a-32e4-4dbf-bd4c-a932b317320f",
+              "leftValue": "={{ $json.output.Type }}",
+              "rightValue": "CV",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            },
+            {
+              "id": "7be65351-ef00-4336-8037-d27ebdc5ac0c",
+              "leftValue": "={{ $json.output.Type }}",
+              "rightValue": "CLASSIC ML",
+              "operator": {
+                "type": "string",
+                "operation": "equals"
+              }
+            }
+          ],
+          "combinator": "or"
+        },
         "options": {}
       },
-      "type": "n8n-nodes-base.postgres",
-      "typeVersion": 2.6,
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
       "position": [
-        2672,
-        -288
+        1392,
+        320
       ],
-      "id": "b628813e-71e7-4f85-b86e-5ecb201eb8d3",
-      "name": "Execute a SQL query2",
-      "credentials": {
-        "postgres": {
-          "id": "MYJ3D6GRloOG6cb8",
-          "name": "Postgres account"
-        }
-      }
+      "id": "409efb69-5027-48c9-8451-d330629e37a4",
+      "name": "Filter2"
     },
     {
       "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d7c43529-1799-4a0b-a741-e73d977fd749",
+              "leftValue": "={{ $json.output[\"Date start\"] }}",
+              "rightValue": "N/A",
+              "operator": {
+                "type": "string",
+                "operation": "notEquals"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 2.3,
+      "position": [
+        1664,
+        320
+      ],
+      "id": "7c086a0f-42be-4cf2-b5ed-16604845196f",
+      "name": "Filter3"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "=Перепиши описание kaggle соревнования на РУССКИЙ ЯЗЫК: {{ $json.description }}",
+        "hasOutputParser": true,
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        3248,
+        352
+      ],
+      "id": "10cdc313-98c6-422a-b673-ad5f2a149141",
+      "name": "Basic LLM Chain3"
+    },
+    {
+      "parameters": {
+        "jsonSchemaExample": "{\n\t\"Title\": \"string\",\n    \"Link\": \"string\",\n    \"Date start\": \"string\",\n    \"Deadline\": \"string\",\n    \"Description\": \"string\",\n    \"Type\": \"string\"\n}",
+        "autoFix": true
+      },
+      "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
+      "typeVersion": 1.3,
+      "position": [
+        3440,
+        640
+      ],
+      "id": "712ad982-ccd5-4759-b520-07d677f1e7b8",
+      "name": "Structured Output Parser3"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b:free",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        1616,
-        96
+        3440,
+        816
       ],
-      "id": "41bcdb21-84ac-4324-a0e2-9ae6bcb9c9a9",
-      "name": "OpenRouter Chat Model3",
+      "id": "a6d149a3-1482-483b-ae36-3d9163e6cd54",
+      "name": "OpenRouter Chat Model6"
+    },
+    {
+      "parameters": {
+        "model": "openai/gpt-oss-20b:free",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
+      "typeVersion": 1,
+      "position": [
+        3248,
+        640
+      ],
+      "id": "532abc0b-e91b-4f3a-a3dd-408aa2516d52",
+      "name": "OpenRouter Chat Model7"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -1072,
+        144
+      ],
+      "id": "99cf0c8c-8e82-4299-a9e2-502fc93261a4",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT \n  COUNT(*)\nFROM\n  kaggle_competitions\nWHERE\n  status = 'new'\n  OR status = 'queued';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -720,
+        144
+      ],
+      "id": "96e32d2e-b84e-4abf-ab71-03841931f05d",
+      "name": "Execute a SQL query",
       "credentials": {
-        "openRouterApi": {
-          "id": "83QmB5iRF2TuqiXX",
-          "name": "OpenRouter account"
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
         }
       }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 12
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        -1072,
+        384
+      ],
+      "id": "f38e050c-d8eb-4f94-976b-89b79c247db7",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "454840ee-049b-41c8-9535-83cf3393be00",
+              "leftValue": 0,
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -480,
+        144
+      ],
+      "id": "09efcb02-ea8f-4e9c-9807-7ab725842bd3",
+      "name": "If"
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        2768,
+        144
+      ],
+      "id": "ab76ee92-f552-4d14-8218-9cd8ff801d2f",
+      "name": "Limit"
     }
   ],
   "pinData": {},
   "connections": {
-    "When clicking ‘Execute workflow’": {
+    "Loop Over Items": {
       "main": [
         [
           {
-            "node": "HTTP Request",
+            "node": "Filter2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Basic LLM Chain2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "HTTP Request": {
+    "Insert or update rows in a table": {
       "main": [
         [
           {
-            "node": "If",
+            "node": "Limit1",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "If": {
-      "main": [
-        [
-          {
-            "node": "HTTP Request1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "HTTP Request1": {
-      "main": [
-        [
-          {
-            "node": "Code in JavaScript",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Code in JavaScript": {
+    "Select rows from a table": {
       "main": [
         [
           {
@@ -440,106 +791,224 @@
         ]
       ]
     },
-    "Limit": {
+    "Limit1": {
       "main": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Select rows from a table",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Structured Output Parser": {
+    "Loop Over Items1": {
+      "main": [
+        [
+          {
+            "node": "Send a text message2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request2": {
+      "main": [
+        [
+          {
+            "node": "If1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If1": {
+      "main": [
+        [
+          {
+            "node": "HTTP Request3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Send a text message1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "HTTP Request3": {
+      "main": [
+        [
+          {
+            "node": "Code in JavaScript1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Code in JavaScript1": {
+      "main": [
+        [
+          {
+            "node": "Limit2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Basic LLM Chain2": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Structured Output Parser2": {
       "ai_outputParser": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Basic LLM Chain2",
             "type": "ai_outputParser",
             "index": 0
           }
         ]
       ]
     },
-    "OpenRouter Chat Model": {
+    "OpenRouter Chat Model4": {
       "ai_languageModel": [
         [
           {
-            "node": "Structured Output Parser",
+            "node": "Structured Output Parser2",
             "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "OpenRouter Chat Model1": {
+    "OpenRouter Chat Model5": {
       "ai_languageModel": [
         [
           {
-            "node": "Basic LLM Chain",
+            "node": "Basic LLM Chain2",
             "type": "ai_languageModel",
             "index": 0
           }
         ]
       ]
     },
-    "Basic LLM Chain": {
+    "Filter2": {
       "main": [
         [
           {
-            "node": "Filter",
+            "node": "Filter3",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Filter": {
+    "Filter3": {
       "main": [
         [
           {
-            "node": "Basic LLM Chain1",
+            "node": "Insert or update rows in a table",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "OpenRouter Chat Model2": {
-      "ai_languageModel": [
+    "Basic LLM Chain3": {
+      "main": [
         [
           {
-            "node": "Basic LLM Chain1",
-            "type": "ai_languageModel",
+            "node": "Loop Over Items1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "Update rows in a table",
+            "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Structured Output Parser1": {
+    "Structured Output Parser3": {
       "ai_outputParser": [
         [
           {
-            "node": "Basic LLM Chain1",
+            "node": "Basic LLM Chain3",
             "type": "ai_outputParser",
             "index": 0
           }
         ]
       ]
     },
-    "Basic LLM Chain1": {
+    "OpenRouter Chat Model6": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Structured Output Parser3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenRouter Chat Model7": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain3",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "When clicking ‘Execute workflow’": {
       "main": [
         [
           {
-            "node": "Filter1",
+            "node": "Execute a SQL query",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Filter1": {
+    "Schedule Trigger": {
       "main": [
         [
           {
@@ -554,41 +1023,37 @@
       "main": [
         [
           {
-            "node": "Execute a SQL query1",
+            "node": "If",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Execute a SQL query1": {
+    "If": {
       "main": [
         [
           {
-            "node": "Send a text message",
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "HTTP Request2",
             "type": "main",
             "index": 0
           }
         ]
       ]
     },
-    "Send a text message": {
+    "Limit": {
       "main": [
         [
           {
-            "node": "Execute a SQL query2",
+            "node": "Loop Over Items1",
             "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "OpenRouter Chat Model3": {
-      "ai_languageModel": [
-        [
-          {
-            "node": "Structured Output Parser1",
-            "type": "ai_languageModel",
             "index": 0
           }
         ]
@@ -600,7 +1065,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "4c3e3b81-0f28-4c55-8bdd-f316a06b21d3",
+  "versionId": "38129e25-fc97-40d1-96e9-ee9d157c4166",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "9103db679eecd46b75b1435147504e73bafd7c34178c3769e37858292b9a7fbe"

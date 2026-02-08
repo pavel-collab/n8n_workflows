@@ -6,8 +6,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -3072,
-        -64
+        -3680,
+        -16
       ],
       "id": "adae2dc5-8075-4867-aeec-bd7b5322ad5e",
       "name": "When clicking ‘Execute workflow’"
@@ -20,8 +20,8 @@
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.2,
       "position": [
-        -2672,
-        -64
+        -2416,
+        192
       ],
       "id": "40a492e4-bf4b-4048-b60d-d77d2f882c5a",
       "name": "RSS Read"
@@ -36,8 +36,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        -1632,
-        208
+        -1872,
+        448
       ],
       "id": "eb0a392e-93e4-49e0-b81a-dce49fa8e27d",
       "name": "Basic LLM Chain"
@@ -50,8 +50,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -1488,
-        528
+        -1680,
+        752
       ],
       "id": "85df0e7b-0091-4106-82d1-fcd7c52b8c3f",
       "name": "Structured Output Parser"
@@ -64,8 +64,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1408,
-        736
+        -1680,
+        944
       ],
       "id": "fc225e68-742c-4464-9c8e-975d4245cbc0",
       "name": "OpenRouter Chat Model1",
@@ -103,8 +103,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -1584,
-        -32
+        -1680,
+        176
       ],
       "id": "231f7b25-a041-47a5-91f6-8ca27acad2b2",
       "name": "Filter"
@@ -119,8 +119,8 @@
       "type": "@n8n/n8n-nodes-langchain.chainLlm",
       "typeVersion": 1.9,
       "position": [
-        -1008,
-        272
+        -1040,
+        448
       ],
       "id": "5b8ad37f-42ae-4224-b9a9-34c19d65751f",
       "name": "Basic LLM Chain1"
@@ -133,8 +133,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1088,
-        496
+        -1040,
+        688
       ],
       "id": "9fbc3190-2356-4863-91b2-1d6f49b53332",
       "name": "OpenRouter Chat Model2",
@@ -153,8 +153,8 @@
       "type": "@n8n/n8n-nodes-langchain.outputParserStructured",
       "typeVersion": 1.3,
       "position": [
-        -928,
-        512
+        -864,
+        752
       ],
       "id": "f416b8c0-c96d-4649-bf26-a9e8a863581d",
       "name": "Structured Output Parser1"
@@ -167,8 +167,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -928,
-        688
+        -864,
+        960
       ],
       "id": "38bb8054-0fc4-494b-b84d-165c08f8abae",
       "name": "OpenRouter Chat Model3",
@@ -206,8 +206,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.3,
       "position": [
-        -672,
-        -48
+        -960,
+        160
       ],
       "id": "1d22d4eb-242b-4219-930c-726e6e22a19e",
       "name": "Filter1"
@@ -217,8 +217,7 @@
         "rule": {
           "interval": [
             {
-              "field": "minutes",
-              "minutesInterval": 2
+              "triggerAtHour": 12
             }
           ]
         }
@@ -226,8 +225,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.3,
       "position": [
-        -3072,
-        192
+        -3680,
+        304
       ],
       "id": "378a23b1-ea5c-4bf5-a594-441de20a438f",
       "name": "Schedule Trigger"
@@ -241,8 +240,8 @@
       "type": "n8n-nodes-base.telegram",
       "typeVersion": 1.2,
       "position": [
-        336,
-        240
+        480,
+        80
       ],
       "id": "42a132fb-7fd0-4482-b863-99eb013c86db",
       "name": "Send a text message",
@@ -261,24 +260,11 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -2000,
-        -16
+        -2128,
+        192
       ],
       "id": "bcece1a3-7ecf-4dec-a259-5bfdbf19a259",
       "name": "Loop Over Items"
-    },
-    {
-      "parameters": {
-        "maxItems": 3
-      },
-      "type": "n8n-nodes-base.limit",
-      "typeVersion": 1,
-      "position": [
-        -2384,
-        -144
-      ],
-      "id": "3599bf89-3b81-416a-b33c-7f7603d6bf07",
-      "name": "Limit"
     },
     {
       "parameters": {
@@ -287,8 +273,8 @@
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
       "position": [
-        -1184,
-        -272
+        -1280,
+        176
       ],
       "id": "a286b717-0862-4c62-8afa-4512d0b41302",
       "name": "Loop Over Items1"
@@ -301,8 +287,8 @@
       "type": "@n8n/n8n-nodes-langchain.lmChatOpenRouter",
       "typeVersion": 1,
       "position": [
-        -1728,
-        656
+        -1872,
+        736
       ],
       "id": "63d88ad3-77e7-42e4-8699-e9e1a5051130",
       "name": "OpenRouter Chat Model",
@@ -416,8 +402,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        -416,
-        16
+        -592,
+        160
       ],
       "id": "3d692c0d-64f8-40ea-a118-f0bcbb80b42a",
       "name": "Insert rows in a table",
@@ -461,8 +447,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        -128,
-        16
+        -304,
+        -128
       ],
       "id": "2b3baf30-ff19-4b1e-946b-10087b3fe87e",
       "name": "Select rows from a table",
@@ -579,8 +565,8 @@
       "type": "n8n-nodes-base.postgres",
       "typeVersion": 2.6,
       "position": [
-        256,
-        -48
+        480,
+        -128
       ],
       "id": "a83b0cbe-3a8b-47c6-837c-22af79a4b78a",
       "name": "Update rows in a table",
@@ -590,6 +576,73 @@
           "name": "Postgres account 2"
         }
       }
+    },
+    {
+      "parameters": {
+        "maxItems": 3
+      },
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        208,
+        -128
+      ],
+      "id": "7d0d6624-d471-4902-8888-04c3fec5b00d",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT\n  COUNT(*)\nFROM\n  arxiv_records\nWHERE\n  status = 'new'\n  OR status = 'queued';",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.postgres",
+      "typeVersion": 2.6,
+      "position": [
+        -3280,
+        -16
+      ],
+      "id": "2cda5aca-4dd1-4255-860c-b9faf92b2c2e",
+      "name": "Execute a SQL query",
+      "credentials": {
+        "postgres": {
+          "id": "w9tRCdysEHVZnfq6",
+          "name": "Postgres account 2"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "69ed6bf1-6c99-412a-b98f-e587b59b34ef",
+              "leftValue": "={{ $json.count.toNumber() }}",
+              "rightValue": 5,
+              "operator": {
+                "type": "number",
+                "operation": "gte"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        -2960,
+        -128
+      ],
+      "id": "af895433-7997-436d-9526-b5671aaac434",
+      "name": "If"
     }
   ],
   "pinData": {},
@@ -598,7 +651,7 @@
       "main": [
         [
           {
-            "node": "RSS Read",
+            "node": "Execute a SQL query",
             "type": "main",
             "index": 0
           }
@@ -609,7 +662,7 @@
       "main": [
         [
           {
-            "node": "Limit",
+            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -719,7 +772,7 @@
       "main": [
         [
           {
-            "node": "RSS Read",
+            "node": "Execute a SQL query",
             "type": "main",
             "index": 0
           }
@@ -743,17 +796,6 @@
         [
           {
             "node": "Basic LLM Chain",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Limit": {
-      "main": [
-        [
-          {
-            "node": "Loop Over Items",
             "type": "main",
             "index": 0
           }
@@ -809,7 +851,47 @@
             "index": 0
           },
           {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
             "node": "Update rows in a table",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute a SQL query": {
+      "main": [
+        [
+          {
+            "node": "If",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "If": {
+      "main": [
+        [
+          {
+            "node": "Select rows from a table",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "RSS Read",
             "type": "main",
             "index": 0
           }
@@ -822,7 +904,7 @@
     "executionOrder": "v1",
     "availableInMCP": false
   },
-  "versionId": "231fd6fc-7f42-4efa-bc58-46511d7a7bec",
+  "versionId": "cba346f6-f85b-41c5-8865-a2f9ba1a8c53",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "9103db679eecd46b75b1435147504e73bafd7c34178c3769e37858292b9a7fbe"
